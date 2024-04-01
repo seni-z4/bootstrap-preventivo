@@ -23,6 +23,13 @@ const prezzoFinaleHTML = document.getElementById("prezzo-finale");
 //quando il promo nn e valido
 const valided = document.getElementById("notvalid");
 
+//validare il dati
+//nome = ""
+//cognome = ''
+//email = ""
+//tipoloavoro ''
+//textarea = ''
+
 //add a addevent lister to the form
 formElement.addEventListener("submit", function (e) {
   //disactivate the form auto refresh
@@ -62,9 +69,11 @@ formElement.addEventListener("submit", function (e) {
   } else if (job === "2") {
     prezzo = oreLavorate * 15.3;
     console.log(prezzo + " hai selezionato 2");
-  } else {
+  } else if (job === "3") {
     prezzo = oreLavorate * 33.6;
     console.log(prezzo + " hai seleizonato 3");
+  } else {
+    console.log("nn hai nessun sconto");
   }
 
   let promo = codicePromoElement.value;
@@ -121,5 +130,5 @@ formElement.addEventListener("submit", function (e) {
   let prezzoFinale = prezzo - discount;
   console.log(prezzoFinale);
 
-  prezzoFinaleHTML.innerHTML = prezzoFinale;
+  prezzoFinaleHTML.innerHTML = prezzoFinale.toFixed(2) + " &euro; ";
 });
