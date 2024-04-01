@@ -55,43 +55,55 @@
             <h1>Richiesta Preventivo</h1>
             <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo</p>
             <!-- form -->
-            <form>
+            <form id="form" novalidate >
               <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" required>
+                <div class="valid-feedback">Nome valido</div>
+                <div class="invaid-feedback">Inserici un nome valido</div>
               </div>
               <div class="mb-3">
                 <label for="cognome" class="form-label">Cognome</label>
-                <input type="text" class="form-control" id="cognome" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="cognome" aria-describedby="emailHelp" required>
+                <div class="valid-feedback">Cognome valido</div>
+                <div class="invaid-feedback">Inserici un cognome valido</div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                <div class="valid-feedback">Email e valido</div>
+                <div class="invaid-feedback">Inserici un email valido</div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Tipo di Lavoro</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" id="select-job" aria-label="Default select example" >
                   <option selected>Seleziona il tipo di Lavoro</option>
                   <option value="1">Sviluppo backend</option>
                   <option value="2">Sviluppo frontend</option>
                   <option value="3">Analisi progettuale</option>
                 </select>
+                <div class="valid-feedback">Option selezionato e valido</div>
+                <div class="invaid-feedback">Seleziona un Option valido</div>
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Textarea con Bootstrap 5</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" required rows="3"></textarea>
               </div>
               <div class="mb-3">
                 <label for="codice-promo" class="form-label">Codice Promozionale (opzionale)</label>
-                <input type="text" class="form-control" id="codice-promo" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="codice-promo" aria-describedby="emailHelp" required>
+                <p id="notvalid"></p>
               </div>
               <div class="mb-5 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Accetto la Privacy Policy </label>
+                <div class="valid-feedback">Grazie per aver accetto la Privacy Policy</div>
+                <div class="invaid-feedback">Acetta i Privacy Policy </div>
               </div>
              <div class="d-flex justify-content-evenly">
               <button type="submit" class="btn btn-primary">Calcola preventivo</button>
               <p class="md-4">Prezzo finale</p>
+              <p id="prezzo-finale">test</p>
              </div>
             </form>
           </div>
