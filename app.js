@@ -124,11 +124,24 @@ formElement.addEventListener("submit", function (e) {
   } else {
     console.log("codice promozionale inserito nn e valido");
     //print del dom che il promo nn e valido
-    valided.innerHTML = `Il codice promo inserito nn e valido`;
+    valided.innerHTML = `Il codice promo inserito non e valido`;
   }
 
   let prezzoFinale = prezzo - discount;
-  console.log(prezzoFinale);
+  console.log(prezzoFinale, typeof prezzoFinale);
 
-  prezzoFinaleHTML.innerHTML = prezzoFinale.toFixed(2) + " &euro; ";
+  // prezzoFinaleHTML.innerHTML = prezzoFinale.toFixed(2).bold() + " &euro; ";
+
+  // convertitre numbero in una stringa
+  let numberString = prezzoFinale.toString();
+  console.log(numberString, typeof numberString);
+
+  let parts = numberString.split(".");
+  let intPart = parts[0];
+  let decimalPart = parts[1] || "00";
+
+  //print nel html
+  let newPrice = "<b>" + intPart + "</b>." + decimalPart;
+
+  prezzoFinaleHTML.innerHTML = newPrice + " &euro; ";
 });
