@@ -101,30 +101,54 @@ formElement.addEventListener("submit", function (e) {
   //2.500 / 100 = 25
   // prezzo finale e di 100 - 25 = 75
 
-  if (promo === "YHDNU32") {
+  // if (promo === "YHDNU32") {
+  //   sconto = prezzo * 25;
+  //   discount = sconto / 100;
+  //   valided.innerHTML = `Il codice promo inserito e valido`;
+  // } else if (promo === "JANJC63") {
+  //   sconto = prezzo * 25;
+  //   discount = sconto / 100;
+  //   valided.innerHTML = `Il codice promo inserito e valido`;
+  // } else if (promo === "PWKCN25") {
+  //   sconto = prezzo * 25;
+  //   discount = sconto / 100;
+  //   valided.innerHTML = `Il codice promo inserito e valido`;
+  // } else if (promo === "SJDPO96") {
+  //   sconto = prezzo * 25;
+  //   discount = sconto / 100;
+  //   valided.innerHTML = `Il codice promo inserito e valido`;
+  // } else if (promo === "POCIE24") {
+  //   sconto = prezzo * 25;
+  //   discount = sconto / 100;
+  //   valided.innerHTML = `Il codice promo inserito e valido`;
+  // } else {
+  //   console.log("codice promozionale inserito nn e valido");
+  //   //print del dom che il promo nn e valido
+  //   valided.innerHTML = `Il codice promo inserito non e valido`;
+  // }
+
+  //promo check optimizaione
+
+  let promoCodes = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
+  if (promoCodes.includes(promo)) {
     sconto = prezzo * 25;
     discount = sconto / 100;
     valided.innerHTML = `Il codice promo inserito e valido`;
-  } else if (promo === "JANJC63") {
-    sconto = prezzo * 25;
-    discount = sconto / 100;
-    valided.innerHTML = `Il codice promo inserito e valido`;
-  } else if (promo === "PWKCN25") {
-    sconto = prezzo * 25;
-    discount = sconto / 100;
-    valided.innerHTML = `Il codice promo inserito e valido`;
-  } else if (promo === "SJDPO96") {
-    sconto = prezzo * 25;
-    discount = sconto / 100;
-    valided.innerHTML = `Il codice promo inserito e valido`;
-  } else if (promo === "POCIE24") {
-    sconto = prezzo * 25;
-    discount = sconto / 100;
-    valided.innerHTML = `Il codice promo inserito e valido`;
-  } else {
-    console.log("codice promozionale inserito nn e valido");
-    //print del dom che il promo nn e valido
+    codicePromoElement.classList.add("is-valid");
+    codicePromoElement.classList.add("text-success");
+    console.log("its valid");
+  } else if (promo != "") {
     valided.innerHTML = `Il codice promo inserito non e valido`;
+    codicePromoElement.classList.remove("is-valid");
+    codicePromoElement.classList.add("is-invalid");
+    codicePromoElement.classList.add("text-danger");
+    codicePromoElement.classList.remove("text-success");
+
+    console.log("its not valid");
+  } else {
+    console.log("no sconto applied");
+    valided.innerHTML = `no sconto`;
   }
 
   let prezzoFinale = prezzo - discount;
