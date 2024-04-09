@@ -134,9 +134,11 @@ formElement.addEventListener("submit", function (e) {
   if (promoCodes.includes(promo)) {
     sconto = prezzo * 25;
     discount = sconto / 100;
-    valided.innerHTML = `Il codice promo inserito e valido`;
+    valided.innerHTML = `Il codice promo inserito e valido, sconto 25%`;
     codicePromoElement.classList.add("is-valid");
     codicePromoElement.classList.add("text-success");
+    formElement.classList.add("was-validated");
+
     console.log("its valid");
   } else if (promo != "") {
     valided.innerHTML = `Il codice promo inserito non e valido`;
@@ -144,6 +146,7 @@ formElement.addEventListener("submit", function (e) {
     codicePromoElement.classList.add("is-invalid");
     codicePromoElement.classList.add("text-danger");
     codicePromoElement.classList.remove("text-success");
+    formElement.classList.remove("was-validated");
 
     console.log("its not valid");
   } else {
