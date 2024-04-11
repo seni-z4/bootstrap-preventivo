@@ -1,4 +1,4 @@
-console.log("Richiesta Preventivo");
+// console.log("Richiesta Preventivo");
 
 //recupeare il input del nome
 const nomeElement = document.getElementById("nome");
@@ -40,13 +40,13 @@ formElement.addEventListener("submit", function (e) {
   }
   formElement.classList.add("was-validated");
 
-  console.log(
-    nomeElement.value,
-    cognomeElement.value,
-    emailElement.value,
-    selectJobElement.value,
-    codicePromoElement.value
-  );
+  // console.log(
+  //   nomeElement.value,
+  //   cognomeElement.value,
+  //   emailElement.value,
+  //   selectJobElement.value,
+  //   codicePromoElement.value
+  // );
 
   //prendere il value del selectjoblelement
   const job = selectJobElement.value;
@@ -65,15 +65,15 @@ formElement.addEventListener("submit", function (e) {
 
   if (job === "1") {
     prezzo = oreLavorate * 20.5;
-    console.log(prezzo + " hai selezionato 1");
+    // console.log(prezzo + " hai selezionato 1");
   } else if (job === "2") {
     prezzo = oreLavorate * 15.3;
-    console.log(prezzo + " hai selezionato 2");
+    // console.log(prezzo + " hai selezionato 2");
   } else if (job === "3") {
     prezzo = oreLavorate * 33.6;
-    console.log(prezzo + " hai seleizonato 3");
+    // console.log(prezzo + " hai seleizonato 3");
   } else {
-    console.log("nn hai nessun sconto");
+    //console.log("nn hai nessun sconto");
   }
 
   let promo = codicePromoElement.value;
@@ -139,7 +139,7 @@ formElement.addEventListener("submit", function (e) {
     codicePromoElement.classList.add("text-success");
     formElement.classList.add("was-validated");
 
-    console.log("its valid");
+    //console.log("its valid");
   } else if (promo != "") {
     valided.innerHTML = `Il codice promo inserito non e valido`;
     codicePromoElement.classList.remove("is-valid");
@@ -148,20 +148,20 @@ formElement.addEventListener("submit", function (e) {
     codicePromoElement.classList.remove("text-success");
     formElement.classList.remove("was-validated");
 
-    console.log("its not valid");
+    //console.log("its not valid");
   } else {
-    console.log("no sconto applied");
-    valided.innerHTML = `no sconto`;
+    //console.log("no sconto applied");
+    valided.innerHTML = `no sconto applicato`;
   }
 
   let prezzoFinale = prezzo - discount;
-  console.log(prezzoFinale, typeof prezzoFinale);
+  //console.log(prezzoFinale, typeof prezzoFinale);
 
   // prezzoFinaleHTML.innerHTML = prezzoFinale.toFixed(2).bold() + " &euro; ";
 
   // convertitre numbero in una stringa
   let numberString = prezzoFinale.toString();
-  console.log(numberString, typeof numberString);
+  //console.log(numberString, typeof numberString);
 
   let parts = numberString.split(".");
   let intPart = parts[0];
